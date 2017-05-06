@@ -113,122 +113,96 @@
 
 
 
-			<!-- Informations about a website -->
-			<div class="ui vertical stripe quote segment" id="useTool">
-				<div class="ui equal width stackable internally celled grid">
-					<div class="center aligned row">
-						<div class="column">
-							<h3>Rechercher un site</h3>
-							<p>Rechercher et afficher les informations relatives à un site spécifique.</p>
-						</div>
-						<div class="column">
-							<div class="ui form">
-								<div class="three fields">
-									<div class="field">
-										<!-- SiteURL -->
-										<label>Adresse du site</label>
-										<div class="ui labeled input">
-											<a class="ui label">http://</a>
-											<input placeholder="domaine.com" type="text" />
-										</div>
-									</div>
-									<div class="field">
-										<!-- Infos only -->
-										<label>&nbsp;</label>
-										<button class="ui primary button" style="width: 100%" infos-popup="N'afficher que les informations actuelles de la liste du Décodex.">Informations actuelles</button>
-									</div>
-									<div class="field">
-										<!-- Entire history -->
-										<label>&nbsp;</label>
-										<button class="ui secondary button" style="width: 100%" infos-popup="Obtenir l'historique connu complet au sujet du site.">Historique complet</button>
-									</div>
+			<!-- Get informations about a website -->
+			<div class="ui vertical stripe  segment" id="useTool">
+				<div class="ui text container">
+					<h3 class="ui header">Rechercher un site</h3>
+					<p>Rechercher et afficher les informations relatives à un site spécifique.</p>
+
+					<div class="ui form">
+						<div class="three fields">
+							<div class="field">
+								<!-- SiteURL -->
+								<label>Adresse du site</label>
+								<div class="ui labeled input">
+									<a class="ui label">http://</a>
+									<input placeholder="domaine.com" type="text" />
 								</div>
+							</div>
+							<div class="field">
+								<!-- Infos only -->
+								<label>&nbsp;</label>
+								<button class="ui primary button" style="width: 100%" infos-popup="N'afficher que les informations actuelles de la liste du Décodex.">Informations actuelles</button>
+							</div>
+							<div class="field">
+								<!-- Entire history -->
+								<label>&nbsp;</label>
+								<button class="ui secondary button" style="width: 100%" infos-popup="Obtenir l'historique connu complet au sujet du site.">Historique complet</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-			<!-- Empty divider -->
-			<div class="ui vertical segment"></div>
-
 
 			<!-- Get the entire list -->
-			<div class="ui vertical stripe quote segment">
-				<div class="ui equal width stackable internally celled grid">
-					<div class="center aligned row">
-						<div class="column">
-							<h3>Afficher la liste</h3>
-							<p>Afficher la liste de sites complète du Décodex actuelle ou celle d'une date précise.</p>
-						</div>
-						<div class="column">
-							<div class="ui form">
-								<div class="two fields">
-									<div class="field">
-										<!-- Datepicker -->
-										<label>Date de la liste</label>
-										<div class="ui input left icon" id="listDatePicker">
-											<i class="calendar icon"></i>
-											<input type="text" placeholder="Date">
-										</div>
-									</div>
-									<div class="field">
-										<!-- Get button -->
-										<label>&nbsp;</label>
-										<button class="ui primary button" infos-popup="Afficher la liste de la date indiquée." style="width: 100%">Obtenir</button>
-									</div>
+			<div class="ui vertical stripe segment">
+				<div class="ui text container">
+					<h3 class="ui header">Afficher la liste</h3>
+					<p>Afficher la liste de sites complète du Décodex actuelle ou celle d'une date précise.</p>
+				
+					<div class="ui form">
+						<div class="two fields">
+							<div class="field">
+								<!-- Datepicker -->
+								<label>Date de la liste</label>
+								<div class="ui input left icon" id="listDatePicker">
+									<i class="calendar icon"></i>
+									<input type="text" placeholder="Date">
 								</div>
+							</div>
+							<div class="field">
+								<!-- Get button -->
+								<label>&nbsp;</label>
+								<button class="ui primary button" infos-popup="Afficher la liste de la date indiquée." style="width: 100%">Afficher</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-			<!-- Empty divider -->
-			<div class="ui vertical segment"></div>
 
 
 			<!-- Get the change list -->
-			<div class="ui vertical stripe quote segment">
-				<div class="ui equal width stackable internally celled grid">
-					<div class="center aligned row">
-						<div class="column">
-							<h3>Liste de changement</h3>
-							<p>Afficher la liste de tous les changements sur une période précise.</p>
-						</div>
-						<div class="column">
-							<!-- Datepickers -->
-							<div class="ui form">
-								<div class="three fields">
-									<div class="field">
-										<label>Début de l'interval</label>
-										<div class="ui calendar" id="changerangestart">
-											<div class="ui input left icon">
-												<i class="calendar icon"></i>
-												<input type="text" placeholder="Date du début de l'interval">
-											</div>
-										</div>
-									</div>
-									<div class="field">
-										<label>Fin de l'interval</label>
-										<div class="ui calendar" id="changerangeend">
-											<div class="ui input left icon">
-												<i class="calendar icon"></i>
-												<input type="text" placeholder="Date de fin de l'interval'">
-											</div>
-										</div>
-									</div>
-									<div class="field">
-										<label>&nbsp;</label>
-										<!-- Get button -->
-										<button class="ui primary button" infos-popup="Afficher la list des changements de l'interval donné." style="width: 100%">Obtenir</button>
+			<div class="ui vertical stripe segment">
+				<div class="ui text container">
+					<h3 class="ui header">Liste de changement</h3>
+					<p>Afficher la liste de tous les changements sur une période précise.</p>
+
+					<!-- Datepickers -->
+					<div class="ui form">
+						<div class="three fields">
+							<div class="field">
+								<label>Début de l'interval</label>
+								<div class="ui calendar" id="changerangestart">
+									<div class="ui input left icon">
+										<i class="calendar icon"></i>
+										<input type="text" placeholder="Date du début de l'interval">
 									</div>
 								</div>
 							</div>
-
-							
+							<div class="field">
+								<label>Fin de l'interval</label>
+								<div class="ui calendar" id="changerangeend">
+									<div class="ui input left icon">
+										<i class="calendar icon"></i>
+										<input type="text" placeholder="Date de fin de l'interval'">
+									</div>
+								</div>
+							</div>
+							<div class="field">
+								<label>&nbsp;</label>
+								<!-- Get button -->
+								<button class="ui primary button" infos-popup="Afficher la list des changements de l'interval donné." style="width: 100%">Obtenir</button>
+							</div>
 						</div>
 					</div>
 				</div>

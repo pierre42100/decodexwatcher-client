@@ -92,7 +92,7 @@
     background-attachment: fixed !important;
 }
 .ui.large.secondary.inverted.pointing.menu {
-    border-color: #0000;
+    border-color: RGBA(0, 0, 0, 0);
 }
 
 /**
