@@ -32,8 +32,6 @@ $(document)
 		}
 	});
 
-	
-
 	//Enable getlist datepicker
 	$('#listDatePicker').calendar({
 		type: 'date',

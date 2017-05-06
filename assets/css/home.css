@@ -1,5 +1,5 @@
 .hidden.menu {
-    display: none;
+    display: none !important;
 }
 
 .masthead.segment {
