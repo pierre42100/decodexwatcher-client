@@ -31,6 +31,16 @@
 
 		<!-- Home scripts -->
 		<script src="assets/js/home.js"></script>
+
+		<!-- DecodexWatcher configuration -->
+		<script>
+			__DWclientConfig = {
+				/**
+				 * Address of API server
+				 */
+				apiURL: "http://devweb.local/decodexList/decodexWatcher/api/",
+			}
+		</script>
 	</head>
 	<body>
 
@@ -238,6 +248,7 @@
 			</div>
 		</div>
 
+		<!-- End of page scripts execution -->
+		<script src="assets/js/common/decodexwatcherclient.js"></script>
 	</body>
-
 </html>
