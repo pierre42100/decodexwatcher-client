@@ -13,31 +13,16 @@
 
 		<!-- Site Properties -->
 		<title>DecodexWatcher - Client</title>
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/reset.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/site.css">
-
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/container.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/grid.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/header.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/image.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/menu.css">
-
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/divider.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/dropdown.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/segment.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/button.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/list.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/icon.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/sidebar.css">
-		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/components/transition.css">
 
 		<!-- Home stylesheet -->
 		<link rel="stylesheet" type="text/css" href="assets/css/home.css">
 
+		<!-- jQuery -->
 		<script src="assets/jquery/jquery-2.1.4.min.js"></script>
-		<script src="assets/semantic-ui/components/visibility.js"></script>
-		<script src="assets/semantic-ui/components/sidebar.js"></script>
-		<script src="assets/semantic-ui/components/transition.js"></script>
+
+		<!-- Semantic JS -->
+		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/semantic.min.css">
+		<script src="assets/semantic-ui/semantic.min.js"></script>
 		
 		<!-- Home scripts -->
 		<script src="assets/js/home.js"></script>
@@ -47,7 +32,9 @@
 		<!-- Following Menu -->
 		<div class="ui large top fixed hidden menu">
 			<div class="ui container">
-				<a class="active item">Home</a>
+				<a class="item" href="#top">DecodexWatcher</a>
+				<a class="item" href="#getstarted">A propos</a>
+				<a class="item" href="#useTool">Utiliser</a>
 				<div class="right menu">
 					<div class="item">
 						<a class="ui primary button" href="https://github.com/pierre42100/decodexwatcher-client">GitHub</a>
@@ -58,7 +45,9 @@
 
 		<!-- Sidebar Menu -->
 		<div class="ui vertical inverted sidebar menu">
-			<a class="active item">Home</a>
+			<a class="item" href="#top">DecodexWatcher</a>
+			<a class="item" href="#getstarted">A propos</a>
+			<a class="item" href="#useTool">Utiliser</a>
 			<a class="item" href="https://github.com/pierre42100/decodexwatcher-client">GitHub</a>
 		</div>
 
@@ -67,12 +56,14 @@
 		<div class="pusher">
 			<div class="ui inverted vertical masthead center aligned segment">
 
-				<div class="ui container">
+				<div class="ui container" id="top">
 					<div class="ui large secondary inverted pointing menu">
 						<a class="toc item">
 							<i class="sidebar icon"></i>
 						</a>
-						<a class="active item">Acceuil</a>
+						<a class="active item" href="#top">DecodexWatcher</a>
+						<a class="item" href="#getstarted">A propos</a>
+						<a class="item" href="#useTool">Utiliser</a>
 						<div class="right item">
 							<a class="ui inverted button" href="https://github.com/pierre42100/decodexwatcher-client">Github</a>
 						</div>
@@ -85,13 +76,19 @@
 						DecodexWatcher
 					</h1>
 					<h2>Restez inform&eacute; de l'&eacute;volution de la liste du Décodex.</h2>
-					<a class="ui huge primary button" href="#getstarted">En savoir plus <i class="right arrow icon"></i></a>
-					<a class="ui huge button" href="#getstarted">Utiliser l'outil <i class="right arrow icon"></i></a>
+					<a class="ui huge primary button" href="#getstarted">
+						En savoir plus <i class="right arrow icon"></i>
+					</a>
+					<a class="ui huge button" href="#useTool">
+						Utiliser l'outil <i class="right arrow icon"></i>
+					</a>
 				</div>
 
 			</div>
 
-			<!-- Tool presentation -->
+
+
+			<!-- Tools presentation -->
 			<div class="ui vertical stripe segment" id="getstarted">
 				<div class="ui text container">
 					<h3 class="ui header">Suivez l'évolution de la liste du Décodex</h3>
@@ -102,27 +99,58 @@
 					de la liste elle-même. Il est important de prendre en considération que l'ensemble des commentaires de sites web ont été publiés par le groupe Le Monde. Notre
 					système synchronise sa liste avec celle du groupe Le Monde toute les vingt-quatre heures.</p>
 
+					<p>Note: Le service DecodexWatcher n'est disponible en ligne que depuis le 1er mai 2017. L'historique antérieur est par conséquent moins précis...</p>
+
 					<p>Ce projet, pour des raisons de transparence, est disponible en OpenSource sur le service collaboratif GitHub.</p>
 				</div>
 			</div>
 
 
-			<div class="ui vertical stripe quote segment">
+
+			<!-- Informations about a website -->
+			<div class="ui vertical stripe quote segment" id="useTool">
 				<div class="ui equal width stackable internally celled grid">
 					<div class="center aligned row">
 						<div class="column">
-							<h3>"What a Company"</h3>
-							<p>That is what they all say about us</p>
+							<h3>Rechercher un site</h3>
+							<p>Rechercher et afficher les informations relatives à un site spécifique.</p>
 						</div>
 						<div class="column">
-							<h3>"I shouldn't have gone with their competitor."</h3>
-							<p>
-								<img src="assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
-							</p>
+							<!-- SiteURL -->
+							<div class="ui labeled input">
+								<a class="ui label">http://</a>
+								<input placeholder="domaine.com" type="text" />
+							</div>
+							
+							<!-- Infos only -->
+							<button class="ui primary button" infos-popup="N'afficher que les informations actuelles de la liste du Décodex.">Informations actuelles</button>
+
+							<!-- Entire history -->
+							<button class="ui secondary button"  infos-popup="Obtenir l'historique connu complet au sujet du site.">Historique complet</button>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<!-- Empty divider -->
+			<div class="ui vertical segment"></div>
+
+			<!-- Get the entire list -->
+			<div class="ui vertical stripe quote segment">
+				<div class="ui equal width stackable internally celled grid">
+					<div class="center aligned row">
+						<div class="column">
+							<h3>Afficher la liste</h3>
+							<p>Afficher la liste de sites complète du Décodex actuelle ou celle d'une date précise.</p>
+						</div>
+						<div class="column">
+							<!-- Current list -->
+							<button class="ui primary button" infos-popup="N'afficher que les informations actuelles de la liste du Décodex.">Liste actuelle</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 
 
 			<!-- Footer -->

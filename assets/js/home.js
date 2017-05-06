@@ -19,4 +19,17 @@ $(document)
         .sidebar('attach events', '.toc.item')
     ;
 
+    //Add the informations popup
+    $('.ui:not(.container, .grid)').each(function() {
+        //Check if there is anything to show
+        if($(this).attr('infos-popup')){
+            $(this).popup({
+                on        : 'hover',
+                variation : 'small inverted',
+                exclusive : true,
+                content   : $(this).attr('infos-popup')
+            });
+        }
+      });
+
 });
