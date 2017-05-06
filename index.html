@@ -23,7 +23,12 @@
 		<!-- Semantic JS -->
 		<link rel="stylesheet" type="text/css" href="assets/semantic-ui/semantic.min.css">
 		<script src="assets/semantic-ui/semantic.min.js"></script>
-		
+
+		<!-- Calendar plugin -->
+		<link rel="stylesheet" type="text/css" href="assets/calendar/calendar.min.css">
+		<script src="assets/calendar/calendar.min.js"></script>
+		<script src="assets/js/datepicker.fr.js"></script>
+
 		<!-- Home scripts -->
 		<script src="assets/js/home.js"></script>
 	</head>
@@ -144,8 +149,14 @@
 							<p>Afficher la liste de sites complète du Décodex actuelle ou celle d'une date précise.</p>
 						</div>
 						<div class="column">
-							<!-- Current list -->
-							<button class="ui primary button" infos-popup="N'afficher que les informations actuelles de la liste du Décodex.">Liste actuelle</button>
+							<!-- Datepicker -->
+							<div class="ui input left icon" id="listDatePicker">
+								<i class="calendar icon"></i>
+								<input type="text" placeholder="Date">
+							</div>
+
+							<!-- Get button -->
+							<button class="ui primary button" infos-popup="Afficher la liste de la date indiquée.">Obtenir</button>
 						</div>
 					</div>
 				</div>

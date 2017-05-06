@@ -82,3 +82,15 @@
         font-size: 1.5em;
     }
 }
+
+/**
+ * Fix datepicker
+ */
+.ui.popup.calendar {
+    padding: 0em 0em !important;
+}
+
+.calendar .column {
+    padding-top: 0em !important;
+    padding-bottom: 0em !important;
+}
