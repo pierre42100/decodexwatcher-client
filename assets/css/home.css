@@ -84,6 +84,18 @@
 }
 
 /**
+ * Header
+ */
+.masthead{
+    background-image: url(../img/paris.jpg) !important;
+    background-position: 50% 25% !important;
+    background-attachment: fixed !important;
+}
+.ui.large.secondary.inverted.pointing.menu {
+    border-color: #0000;
+}
+
+/**
  * Fix datepicker
  */
 .ui.popup.calendar {
