@@ -121,24 +121,34 @@
 							<p>Rechercher et afficher les informations relatives à un site spécifique.</p>
 						</div>
 						<div class="column">
-							<!-- SiteURL -->
-							<div class="ui labeled input">
-								<a class="ui label">http://</a>
-								<input placeholder="domaine.com" type="text" />
+							<div class="ui form">
+								<div class="three fields">
+									<div class="field">
+										<!-- SiteURL -->
+										<div class="ui labeled input">
+											<a class="ui label">http://</a>
+											<input placeholder="domaine.com" type="text" />
+										</div>
+									</div>
+									<div class="field">
+										<!-- Infos only -->
+										<button class="ui primary button" style="width: 100%" infos-popup="N'afficher que les informations actuelles de la liste du Décodex.">Informations actuelles</button>
+									</div>
+									<div class="field">
+										<!-- Entire history -->
+										<button class="ui secondary button" style="width: 100%" infos-popup="Obtenir l'historique connu complet au sujet du site.">Historique complet</button>
+									</div>
+								</div>
 							</div>
-							
-							<!-- Infos only -->
-							<button class="ui primary button" infos-popup="N'afficher que les informations actuelles de la liste du Décodex.">Informations actuelles</button>
-
-							<!-- Entire history -->
-							<button class="ui secondary button"  infos-popup="Obtenir l'historique connu complet au sujet du site.">Historique complet</button>
 						</div>
 					</div>
 				</div>
 			</div>
 
+
 			<!-- Empty divider -->
 			<div class="ui vertical segment"></div>
+
 
 			<!-- Get the entire list -->
 			<div class="ui vertical stripe quote segment">
@@ -149,19 +159,76 @@
 							<p>Afficher la liste de sites complète du Décodex actuelle ou celle d'une date précise.</p>
 						</div>
 						<div class="column">
-							<!-- Datepicker -->
-							<div class="ui input left icon" id="listDatePicker">
-								<i class="calendar icon"></i>
-								<input type="text" placeholder="Date">
+							<div class="ui form">
+								<div class="two fields">
+									<div class="field">
+										<!-- Datepicker -->
+										<label>Date de la liste</label>
+										<div class="ui input left icon" id="listDatePicker">
+											<i class="calendar icon"></i>
+											<input type="text" placeholder="Date">
+										</div>
+									</div>
+									<div class="field">
+										<!-- Get button -->
+										<label>&nbsp;</label>
+										<button class="ui primary button" infos-popup="Afficher la liste de la date indiquée." style="width: 100%">Obtenir</button>
+									</div>
+								</div>
 							</div>
-
-							<!-- Get button -->
-							<button class="ui primary button" infos-popup="Afficher la liste de la date indiquée.">Obtenir</button>
 						</div>
 					</div>
 				</div>
 			</div>
 
+
+			<!-- Empty divider -->
+			<div class="ui vertical segment"></div>
+
+
+			<!-- Get the change list -->
+			<div class="ui vertical stripe quote segment">
+				<div class="ui equal width stackable internally celled grid">
+					<div class="center aligned row">
+						<div class="column">
+							<h3>Liste de changement</h3>
+							<p>Afficher la liste de tous les changements sur une période précise.</p>
+						</div>
+						<div class="column">
+							<!-- Datepickers -->
+							<div class="ui form">
+								<div class="three fields">
+									<div class="field">
+										<label>Début de l'interval</label>
+										<div class="ui calendar" id="changerangestart">
+											<div class="ui input left icon">
+												<i class="calendar icon"></i>
+												<input type="text" placeholder="Date du début de l'interval">
+											</div>
+										</div>
+									</div>
+									<div class="field">
+										<label>Fin de l'interval</label>
+										<div class="ui calendar" id="changerangeend">
+											<div class="ui input left icon">
+												<i class="calendar icon"></i>
+												<input type="text" placeholder="Date de fin de l'interval'">
+											</div>
+										</div>
+									</div>
+									<div class="field">
+										<label>&nbsp;</label>
+										<!-- Get button -->
+										<button class="ui primary button" infos-popup="Afficher la list des changements de l'interval donné." style="width: 100%">Obtenir</button>
+									</div>
+								</div>
+							</div>
+
+							
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 			<!-- Footer -->
@@ -183,7 +250,7 @@
 							</div>
 						</div>
 						<div class="seven wide column">
-							<h4 class="ui inverted header">&nbsp;</h4>
+							<h4 class="ui inverted header">Notes</h4>
 							<p>Créé afin que vous puissez le savoir. Les commentaires de site proviennent du groupe Le Monde.</p>
 							<p>DecodexWatcher a été développé par Pierre HUBERT en 2017.</p>
 						</div>

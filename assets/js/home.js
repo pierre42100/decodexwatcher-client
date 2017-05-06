@@ -32,9 +32,29 @@ $(document)
 		}
 	});
 
-	//Enable getlist datepicker
+	//Enable get entire list datepicker
 	$('#listDatePicker').calendar({
 		type: 'date',
+		text: SemanticFrenchDatePicker.datepickerText,
+		monthFirst: false,
+		formatter: {
+			date: SemanticFrenchDatePicker.frenchDateFormater,
+		}
+	});
+
+	//Enable datepickers of changelist
+	$('#changerangestart').calendar({
+		type: 'date',
+		endCalendar: $('#changerangeend'),
+		text: SemanticFrenchDatePicker.datepickerText,
+		monthFirst: false,
+		formatter: {
+			date: SemanticFrenchDatePicker.frenchDateFormater,
+		}
+	});
+	$('#changerangeend').calendar({
+		type: 'date',
+		startCalendar: $('#changerangestart'),
 		text: SemanticFrenchDatePicker.datepickerText,
 		monthFirst: false,
 		formatter: {
