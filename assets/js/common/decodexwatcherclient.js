@@ -88,9 +88,9 @@ DWclient = {
 			 * @param {HTMLElement} content The content the message
 			 * @param {String} iconName The name of the containing icon
 			 * @param {Boolean} isDississable Define wether the message can be dissmissed or not
-			 * @return {Boolean} True for a success
+			 * @return {HTMLElement} Display message element
 			 */
-			showMessage: function(title, content, iconName, isDississable){
+			showMessage: function(title, content, iconName, isDissmissable){
 				
 				//Create main element
 				var mainelem = createElem("div", document.body);
@@ -113,8 +113,21 @@ DWclient = {
 				messageelem.style.left = "3%";
 				messageelem.className = "ui icon message";
 
+				//Add dismiss icon (if required)
+				if(isDissmissable){
+					var dismisselem = createElem("i", messageelem);
+					dismisselem.className = "close icon";
+					dismisselem.onclick = function(){
+						this.parentNode.parentNode.remove();
+					}
+				}
+
+				//Add message icon
+				var iconelem = createElem("i", messageelem);
+				iconelem.className = "notched circle loading icon";
+
 				//Success
-				return false;
+				return mainelem;
 			}
 		}
 	}
@@ -122,4 +135,4 @@ DWclient = {
 
 var content = createElem("div");
 content.innerHTML = "<p>Hello world !</p>";
-DWclient.common.messages.showMessage("Message title", content);
+DWclient.common.messages.showMessage("Message title", content, "icon", true);
