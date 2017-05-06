@@ -94,3 +94,12 @@
     padding-top: 0em !important;
     padding-bottom: 0em !important;
 }
+
+/**
+ * Fix footer
+ */
+.footer {
+    padding-top: 70px !important;
+    padding-bottom: 70px !important;
+    margin-top: 70px !important;
+}
