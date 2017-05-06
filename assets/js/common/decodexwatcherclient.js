@@ -26,22 +26,12 @@ DWclient = {
 			 * 
 			 * @param {String} apiURI The URI to call in the API
 			 * @param {Object} params The params to include in request
-			 * @param {Boolean} requireLoginTokens Specify if login tokens are required or not
 			 * @param {Function} nextAction What to do next
+			 * @param {Boolean} isGet Specify if it is a Get method
 			 */
-			makeAPIrequest: function(apiURI, params, requireLoginTokens, nextAction){
+			makeAPIrequest: function(apiURI, params, nextAction, isGet){
 				//Prepare the request URL
 				var requestURL = DWclient.__config.apiURL + apiURI;
-				
-				//Add login tokens to params if required
-				if(requireLoginTokens){
-					//Get login tokens
-					tokens = ComunicWeb.user.loginTokens.getLoginTokens();
-
-					//Add tokens
-					params.token1 = tokens.token1;
-					params.token2 = tokens.token2;
-				}
 
 				//Prepare data to send in request
 				var count = 0;
@@ -57,9 +47,15 @@ DWclient = {
 					count++; //Increment counter
 				}     
 
+				//Define request method
+				if(!isGet)
+					var requestMethod = "GET";
+				else
+					var requestMethod = "POST";
+
 				//Create request
 				var apiXHR = new XMLHttpRequest();
-				apiXHR.open("POST", requestURL);
+				apiXHR.open(requestMethod, requestURL);
 
 				//Prepare request response
 				apiXHR.onreadystatechange = function(){
@@ -79,6 +75,51 @@ DWclient = {
 				//Submit request
 				apiXHR.send(datas);
 			},
+		},
+
+		/**
+		 * Messages functions
+		 */
+		messages:{
+			/**
+			 * Display a message on the screen
+			 * 
+			 * @param {String} title The title of the message
+			 * @param {HTMLElement} content The content the message
+			 * @param {String} iconName The name of the containing icon
+			 * @param {Boolean} isDississable Define wether the message can be dissmissed or not
+			 * @return {Boolean} True for a success
+			 */
+			showMessage: function(title, content, iconName, isDississable){
+				
+				//Create main element
+				var mainelem = createElem("div", document.body);
+
+				//Create overlay
+				var overlay = createElem("div", mainelem);
+				overlay.style.width = "100%";
+				overlay.style.height = "100%";
+				overlay.style.position = "fixed";
+				overlay.style.zIndex = 1000;
+				overlay.style.top = "0px";
+				overlay.style.backgroundColor = "#00000080";
+
+				//Create message node
+				var messageelem = createElem("div", mainelem);
+				messageelem.style.width = "94%";
+				messageelem.style.position = "fixed";
+				messageelem.style.zIndex = 1001;
+				messageelem.style.top = "3%";
+				messageelem.style.left = "3%";
+				messageelem.className = "ui icon message";
+
+				//Success
+				return false;
+			}
 		}
 	}
 };
+
+var content = createElem("div");
+content.innerHTML = "<p>Hello world !</p>";
+DWclient.common.messages.showMessage("Message title", content);
