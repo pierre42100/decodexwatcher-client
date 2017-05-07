@@ -116,6 +116,7 @@ DWclient.common.messages = {
      * Display informations about a single website
      * 
      * @param {object} infos The informations about the website
+     * @return {Boolean} True for a success
      */
     displayInfosOneSite: function(infos){
         //Create information element
@@ -160,5 +161,25 @@ DWclient.common.messages = {
 
         //Apply message dialog
         this.showMessage("Informations à propos de <i>"+infos.name+"</i>", contenerelem, "info", null, true);
+
+        //Success
+        return true;
+    },
+
+    /**
+     * Display informations about multiple websites
+     * 
+     * @param {Object} infos Informations about the websites
+     * @return {Boolean} Ture for a success
+     */
+    displayMultipleSitesInfos: function(infos){
+        //Create dialog information element
+        var contenerelem = createElem("div");
+
+        //Apply message dialog
+        this.showMessage("Informations sur des sites web", contenerelem, "info", null, true);
+
+        //Success
+        return true;
     },
 };

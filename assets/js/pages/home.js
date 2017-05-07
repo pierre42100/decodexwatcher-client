@@ -53,7 +53,7 @@ DWclient.pages.home = {
             if(!allHistory)
                 DWclient.common.messages.displayInfosOneSite(result);
             else
-                DWclient.common.messages.displayMultipleSiteInfos(result);
+                DWclient.common.messages.displayMultipleSitesInfos(result);
         };
 
         //Perform the request on the server
