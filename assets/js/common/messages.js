@@ -13,10 +13,11 @@ DWclient.common.messages = {
 	 * @param {String} type The type of the message (default, loading, success, info, error)
 	 * @param {String} iconName The name of the containing icon
 	 * @param {Boolean} isDississable Define wether the message can be dissmissed or not
-	 * @param {Integer} timeout Optionnal, define a timeout for the message
+	 * @param {Integer} timeout Optionnal, defines a timeout for the message
+	 * @param {Boolean} fullScreen Optionnal, defines if the message may be a full screen message
 	 * @return {HTMLElement} Display message element
 	 */
-	showMessage: function(title, content, type, iconName, isDissmissable, timeout){
+	showMessage: function(title, content, type, iconName, isDissmissable, timeout, fullScreen){
 		
 		//Determine message type
 		var messageType = ""
@@ -68,12 +69,21 @@ DWclient.common.messages = {
 
 		//Create message node
 		var messageelem = createElem("div", mainelem);
-		messageelem.style.width = "94%";
-		//messageelem.style.position = "fixed";
 		messageelem.style.zIndex = 1001;
-		messageelem.style.top = "3%";
-		messageelem.style.left = "3%";
 		messageelem.className = "ui "+messageType+" message";
+		if(!fullScreen){
+			messageelem.style.width = "94%";
+			messageelem.style.top = "3%";
+			messageelem.style.left = "3%";
+			messageelem.style.maxHeight = "94%";
+		}
+		else {
+			messageelem.style.width = "100%";
+			messageelem.style.top = "0%";
+			messageelem.style.left = "0%";
+			messageelem.style.height = "100%";
+		}
+		
 
 		//Add dismiss icon (if required)
 		if(isDissmissable){
@@ -181,10 +191,15 @@ DWclient.common.messages = {
 	displayMultipleSitesInfos: function(sites){
 		//Create dialog information element
 		var contenerelem = createElem("div");
+		contenerelem.style.position = "relative";
+		contenerelem.style.height = "700px";
+		contenerelem.style.top = "30px";
+		contenerelem.style.overflow = "auto";
 
 		//Create table
 		var tableelem = createElem("table", contenerelem);
 		tableelem.className = "ui striped table";
+		tableelem.id = "multipleSitesTable";
 
 		//Create header row
 		var tableheader = createElem("thead", tableelem);
@@ -247,7 +262,7 @@ DWclient.common.messages = {
 		}
 
 		//Apply message dialog
-		this.showMessage("Informations sur des sites web", contenerelem, "info", null, true);
+		this.showMessage("Informations sur des sites web", contenerelem, "info", null, true, false, true);
 
 		//Success
 		return true;
