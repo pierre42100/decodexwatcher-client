@@ -175,10 +175,10 @@ DWclient.common.messages = {
 	/**
 	 * Display informations about multiple websites
 	 * 
-	 * @param {Object} infos Informations about the websites
+	 * @param {Object} sites Informations about the websites
 	 * @return {Boolean} Ture for a success
 	 */
-	displayMultipleSitesInfos: function(infos){
+	displayMultipleSitesInfos: function(sites){
 		//Create dialog information element
 		var contenerelem = createElem("div");
 
@@ -205,6 +205,46 @@ DWclient.common.messages = {
 
 			var dateField = createElem("th", tableheader);
 			dateField.innerHTML = "Date d'enregistrement";
+		
+		//Create body row
+		var tableBody = createElem("tbody", tableelem);
+
+		//Process each site
+		for(i in sites){
+			//Extract infos about site
+			var infos = sites[i];
+
+			//Create main row elem
+			var row = createElem("tr", tableBody);
+
+			//Add informations
+			//Site name
+			var siteNameElem = createElem("td", row);
+			siteNameElem.innerHTML = infos.name;
+			
+			//Comment
+			var siteComment = createElem("td", row);
+			siteComment.innerHTML = infos.comment;
+
+			//Trust level
+			var trustLevel = createElem("td", row);
+			trustLevel.style.color = DWclient.__config.trustLevels[infos.trustLevel].color;
+			trustLevel.innerHTML = DWclient.__config.trustLevels[infos.trustLevel].name;
+
+			//Process URLs
+			var urlsElem = createElem("td", row);
+			for(i in infos.urls)
+				urlsElem.innerHTML += "<a href='http://"+infos.urls[i]+"' target='_blank'>"+infos.urls[i]+"</a><br />";
+			
+			//Last version
+			var lastVersionElem = createElem("td", row);
+			lastVersionElem.innerHTML = (infos.latest == 1 ? "Oui" : "Non");
+
+			//Save date
+			var saveDate = createElem("td", row);
+			saveDate.innerHTML = timeToStr(infos.insertTime);
+
+		}
 
 		//Apply message dialog
 		this.showMessage("Informations sur des sites web", contenerelem, "info", null, true);
