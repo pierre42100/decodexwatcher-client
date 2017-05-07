@@ -22,7 +22,7 @@ DWclient.pages.home = {
         //Get website name
         var error = createElem("p");
         error.innerHTML = "Veuillez spécifier le nom d'un site web !";
-        DWclient.common.messages.showMessage("Error", error, "error", false, true);
+        DWclient.common.messages.showMessage("Error", error, "error", false, true, 4000);
     },
 
     /**

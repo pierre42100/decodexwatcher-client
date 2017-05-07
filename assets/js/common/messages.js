@@ -13,9 +13,10 @@ DWclient.common.messages = {
      * @param {String} type The type of the message (default, loading, success, info, error)
      * @param {String} iconName The name of the containing icon
      * @param {Boolean} isDississable Define wether the message can be dissmissed or not
+     * @param {Integer} timeout Optionnal, define a timeout for the message
      * @return {HTMLElement} Display message element
      */
-    showMessage: function(title, content, type, iconName, isDissmissable){
+    showMessage: function(title, content, type, iconName, isDissmissable, timeout){
         
         //Determine message type
         var messageType = ""
@@ -99,6 +100,13 @@ DWclient.common.messages = {
 
         //Add message content
         contentelem.appendChild(content);
+
+        //Defines a timeout for the message if required
+        if(timeout){
+            setTimeout(( function(){
+                mainelem.remove();
+            }), timeout);
+        }
 
         //Success
         return mainelem;
