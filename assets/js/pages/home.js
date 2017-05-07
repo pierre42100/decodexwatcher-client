@@ -30,6 +30,9 @@ DWclient.pages.home = {
             return false;
         }
 
+        //Freeze screen
+        DWclient.common.waitScreen.show();
+
         //Perform a request on the server
         var apiURL = "site/"+endAPIurl;
         params = {
@@ -38,6 +41,10 @@ DWclient.pages.home = {
 
         //What to do next
         onceGotInfos = function(result){
+
+            //Unfreeze screen
+            DWclient.common.waitScreen.hide();
+
             //We check if there was an error
             if(result.error){
                 //Prepare error display
