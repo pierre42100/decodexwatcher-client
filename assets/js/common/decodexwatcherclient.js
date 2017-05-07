@@ -26,5 +26,15 @@ DWclient = {
 		 * Messages functions
 		 */
 		messages:{},
-	}
+	},
+
+	/**
+	 * Pages functions
+	 */
+	pages:{
+		/**
+		 * Home page functions
+		 */
+		home:{}
+	},
 };
