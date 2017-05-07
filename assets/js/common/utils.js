@@ -20,3 +20,13 @@ function createElem(nodeType, appendTo){
     //Return result
     return newElem;
 }
+
+/**
+ * Get an HTML element specified by an ID
+ * 
+ * @param {String} nodeName The ID of the element
+ * @return {HTMLElement} The elemnt / False for a failure
+ */
+function byId(nodeName){
+    return document.getElementById(nodeName);
+}
