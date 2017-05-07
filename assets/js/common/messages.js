@@ -137,9 +137,18 @@ DWclient.common.messages = {
         var trustLevel = createElem("tr", table);
         var trustLevelname = createElem("td", trustLevel);
         var trustLevelContent = createElem("td", trustLevel);
-        trustLevelname.innerHTML = "Niveau de fiabilité";
+        trustLevelname.innerHTML = "Niveau de fiabilité (du Décodex)";
         trustLevelContent.style.color = DWclient.__config.trustLevels[infos.trustLevel].color;
         trustLevelContent.innerHTML = DWclient.__config.trustLevels[infos.trustLevel].name;
+
+        //URLs
+        var urlselem = createElem("tr", table);
+        var urlsname = createElem("td", urlselem);
+        var urlsvalues = createElem("td", urlselem);
+        urlsname.innerHTML = "Adresses du site";
+
+        for(i in infos.urls)
+            urlsvalues.innerHTML += "<a href='http://"+infos.urls[i]+"' target='_blank'>"+infos.urls[i]+"</a><br />";
 
         //Lastest informations entry
         var latestelem = createElem("tr", table);
