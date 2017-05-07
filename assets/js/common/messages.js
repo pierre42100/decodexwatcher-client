@@ -129,7 +129,25 @@ DWclient.common.messages = {
         var nameelem = createElem("tr", table);
         nameelem.innerHTML = "<td> Nom du site </td><td>"+infos.name+"</td>";
 
-        //
+        //Add site comment
+        var siteComment = createElem("tr", table);
+        siteComment.innerHTML = "<td>Commentaire du Décodex</td><td>"+infos.comment+"</td>";
+
+        //Trust level
+        var trustLevel = createElem("tr", table);
+        var trustLevelname = createElem("td", trustLevel);
+        var trustLevelContent = createElem("td", trustLevel);
+        trustLevelname.innerHTML = "Niveau de fiabilité";
+        trustLevelContent.style.color = DWclient.__config.trustLevels[infos.trustLevel].color;
+        trustLevelContent.innerHTML = DWclient.__config.trustLevels[infos.trustLevel].name;
+
+        //Lastest informations entry
+        var latestelem = createElem("tr", table);
+        latestelem.innerHTML = "<td>Dernière version de notation du site</td><td>"+(infos.latest == 1 ? "Oui" : "Non")+"</td>";
+
+        //Date add
+        var dateelem = createElem("tr", table);
+        dateelem.innerHTML = "<td>Date d'enregistrement</td><td>"+timeToStr(infos.insertTime)+"</td>";
 
         //Apply message dialog
         this.showMessage("Informations à propos de <i>"+infos.name+"</i>", contenerelem, "info", null, true);
