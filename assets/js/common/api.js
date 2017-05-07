@@ -36,9 +36,9 @@ DWclient.common.api = {
 
         //Define request method
         if(!isGet)
-            var requestMethod = "GET";
-        else
             var requestMethod = "POST";
+        else
+            var requestMethod = "GET";
 
         //Create request
         var apiXHR = new XMLHttpRequest();

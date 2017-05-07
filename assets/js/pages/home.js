@@ -20,9 +20,43 @@ DWclient.pages.home = {
             endAPIurl = "history";
         
         //Get website name
-        var error = createElem("p");
-        error.innerHTML = "Veuillez spécifier le nom d'un site web !";
-        DWclient.common.messages.showMessage("Error", error, "error", false, true, 4000);
+        var siteName = byId('getInfosSiteURL').value;
+        if((!siteName) || siteName == ""){
+            var error = createElem("p");
+            error.innerHTML = "Veuillez spécifier le nom d'un site web !";
+            DWclient.common.messages.showMessage("Erreur", error, "error", false, true, 4000);
+
+            //Quit script
+            return false;
+        }
+
+        //Perform a request on the server
+        var apiURL = "site/"+endAPIurl;
+        params = {
+            url: siteName,
+        };
+
+        //What to do next
+        onceGotInfos = function(result){
+            //We check if there was an error
+            if(result.error){
+                //Prepare error display
+                var error = createElem("p");
+                error.innerHTML = "Une erreur a été rencontrée lors de la tentative de récupération des données auprès du serveur.<br />";
+                error.innerHTML += "Le code de l'erreur est le code "+result.error.code+" et le message du serveur est le suivant : <br/>";
+                error.innerHTML += "<i>"+result.error.message+"</i>";
+                DWclient.common.messages.showMessage("Erreur", error, "error", false, true, 10000);
+                return false;
+            }
+
+            //Else we can display informations about the website
+        };
+
+        //Perform the request on the server
+        DWclient.common.api.makeAPIrequest(apiURL, params, onceGotInfos);
+
+        //Success
+        return true;
     },
 
     /**
