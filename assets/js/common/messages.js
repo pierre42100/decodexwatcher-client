@@ -50,6 +50,12 @@ DWclient.common.messages = {
 
 		//Create main element
 		var mainelem = createElem("div", document.body);
+		mainelem.style.position = "fixed";
+		mainelem.style.top = "0px";
+		mainelem.style.left = "0px";
+		mainelem.style.width = "100%";
+		mainelem.style.height = "100%";
+		mainelem.style.zIndex = "1000";
 
 		//Create overlay
 		var overlay = createElem("div", mainelem);
@@ -63,7 +69,7 @@ DWclient.common.messages = {
 		//Create message node
 		var messageelem = createElem("div", mainelem);
 		messageelem.style.width = "94%";
-		messageelem.style.position = "fixed";
+		//messageelem.style.position = "fixed";
 		messageelem.style.zIndex = 1001;
 		messageelem.style.top = "3%";
 		messageelem.style.left = "3%";
