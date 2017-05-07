@@ -125,6 +125,74 @@ DWclient.pages.home = {
 	},
 
 	/**
+	 * Get and show the changes on a specified period
+	 * 
+	 * @return {Boolean} True for a success
+	 */
+	getChangesList: function(){
+		//Get changes begining
+		var changesBegin = byId('beginChangesInterval').value;
+		if((!changesBegin) || changesBegin == ""){
+			var error = createElem("p");
+			error.innerHTML = "Veuillez spécifier la date de début des changements !";
+			DWclient.common.messages.showMessage("Erreur", error, "error", false, true, 4000);
+
+			//Quit script
+			return false;
+		}
+
+		//Get changes end
+		var changesEnd = byId('endChangesIntervalInput').value;
+		if((!changesEnd) || changesEnd == ""){
+			var error = createElem("p");
+			error.innerHTML = "Veuillez spécifier la date de fin des changements !";
+			DWclient.common.messages.showMessage("Erreur", error, "error", false, true, 4000);
+
+			//Quit script
+			return false;
+		}
+
+		
+
+		//Freeze screen
+		DWclient.common.waitScreen.show();
+
+		//Convert the list date to a timestamp
+		var fromTime = strDateToTime(changesBegin);
+		var toTime = strDateToTime(changesEnd);
+		
+		//Make an API request
+		apiURI = "changes/get/"+ fromTime +"/"+ toTime;
+		params = {};
+
+		//What to do next
+		var onceGotChanges = function(result){
+			//Remove wait splash screen
+			DWclient.common.waitScreen.hide();
+
+			//We check if there was an error
+			if(result.error){
+				//Prepare error display
+				var error = createElem("p");
+				error.innerHTML = "Une erreur a été rencontrée lors de la tentative de récupération des données auprès du serveur.<br />";
+				error.innerHTML += "Le code de l'erreur est le code "+result.error.code+" et le message du serveur est le suivant : <br/>";
+				error.innerHTML += "<i>"+result.error.message+"</i>";
+				DWclient.common.messages.showMessage("Erreur", error, "error", false, true, 10000);
+				return false;
+			}
+
+			//Else we can show the changes list
+			DWclient.common.messages.displayMultipleSitesInfos(result);
+		};
+
+		//Perform API request
+		DWclient.common.api.makeAPIrequest(apiURI, params, onceGotChanges, true);
+
+		//Success
+		return true;
+	},
+
+	/**
 	 * Home initiator
 	 */
 	init: function(){
@@ -200,9 +268,14 @@ DWclient.pages.home = {
 			DWclient.pages.home.getInfosSite(true);
 		}
 
-		//Make the "get complete list" button live
+		//Make the "get complete list" button lives
 		byId("getACompletelist").onclick = function(){
 			DWclient.pages.home.getCompleteList();
+		}
+
+		//Make the "get changes list" button lives
+		byId("getChangesListButton").onclick = function(){
+			DWclient.pages.home.getChangesList();
 		}
 	}
 };
