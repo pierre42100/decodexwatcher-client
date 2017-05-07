@@ -50,6 +50,10 @@ DWclient.pages.home = {
             }
 
             //Else we can display informations about the website
+            if(!allHistory)
+                DWclient.common.messages.displayInfosOneSite(result);
+            else
+                DWclient.common.messages.displayMultipleSiteInfos(result);
         };
 
         //Perform the request on the server

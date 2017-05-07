@@ -110,5 +110,28 @@ DWclient.common.messages = {
 
         //Success
         return mainelem;
-    }
+    },
+
+    /**
+     * Display informations about a single website
+     * 
+     * @param {object} infos The informations about the website
+     */
+    displayInfosOneSite: function(infos){
+        //Create information element
+        var contenerelem = createElem("div");
+
+        //Process informations
+        var table = createElem("table", contenerelem);
+        table.className = "ui striped table";
+
+        //Add site name
+        var nameelem = createElem("tr", table);
+        nameelem.innerHTML = "<td> Nom du site </td><td>"+infos.name+"</td>";
+
+        //
+
+        //Apply message dialog
+        this.showMessage("Informations à propos de <i>"+infos.name+"</i>", contenerelem, "info", null, true);
+    },
 };
