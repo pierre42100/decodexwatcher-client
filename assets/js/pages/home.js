@@ -107,6 +107,7 @@ DWclient.pages.home = {
         });
 
         //Enable get entire list datepicker
+        byId("getListDateInput").value = getCurrentDate();
         $('#listDatePicker').calendar({
             type: 'date',
             text: SemanticFrenchDatePicker.datepickerText,
@@ -126,6 +127,7 @@ DWclient.pages.home = {
                 date: SemanticFrenchDatePicker.frenchDateFormater,
             }
         });
+        byId("endChangesIntervalInput").value = getCurrentDate();
         $('#changerangeend').calendar({
             type: 'date',
             startCalendar: $('#changerangestart'),
