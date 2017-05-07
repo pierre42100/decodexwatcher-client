@@ -32,7 +32,7 @@ function byId(nodeName){
 }
 
 /**
- * Convert a timestamp to a "string" name
+ * Convert a timestamp date to a "string" name
  * 
  * @param {Integer} timestamp The timestamp to convert
  * @return {String} The timestamp as a string
@@ -81,7 +81,29 @@ function timeToStr(timestamp){
  * @return {String} The current date
  */
 function getCurrentDate(){
-    date = new Date();
+    var date = new Date();
     date.get
     return date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+}
+
+/**
+ * Convert a string date to a timestamp
+ * 
+ * @param {String} string The date to convert
+ * @return {Integer} The corresponding timestamp
+ */
+function strDateToTime(string){
+    //Create a new date
+    var date = new Date();
+
+    //Transform date into a string
+    var arrayDate = string.split("/");
+
+    //Apply new informations to date
+    date.setFullYear(arrayDate[2]);
+    date.setMonth(arrayDate[1]-1);
+    date.setDate(arrayDate[0]);
+    
+    //Return timestamp
+    return Math.floor(date.getTime()/1000);
 }

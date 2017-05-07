@@ -87,9 +87,38 @@ DWclient.pages.home = {
 			return false;
 		}
 
+		//Freeze screen
+		DWclient.common.waitScreen.show();
+
 		//Convert the list date to a timestamp
 		var listTime = strDateToTime(listDate);
-		console.log(listTime);
+		
+		//Make an API request
+		apiURI = "list/get/"+ listTime;
+		params = {};
+
+		//What to do next
+		var onceGotChanges = function(result){
+			//Remove wait splash screen
+			DWclient.common.waitScreen.hide();
+
+			//We check if there was an error
+			if(result.error){
+				//Prepare error display
+				var error = createElem("p");
+				error.innerHTML = "Une erreur a été rencontrée lors de la tentative de récupération des données auprès du serveur.<br />";
+				error.innerHTML += "Le code de l'erreur est le code "+result.error.code+" et le message du serveur est le suivant : <br/>";
+				error.innerHTML += "<i>"+result.error.message+"</i>";
+				DWclient.common.messages.showMessage("Erreur", error, "error", false, true, 10000);
+				return false;
+			}
+
+			//Else we can show the list
+			DWclient.common.messages.displayMultipleSitesInfos(result);
+		};
+
+		//Perform API request
+		DWclient.common.api.makeAPIrequest(apiURI, params, onceGotChanges, true);
 
 		//Success
 		return true;
