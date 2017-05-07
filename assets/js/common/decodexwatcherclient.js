@@ -26,6 +26,11 @@ DWclient = {
 		 * Messages functions
 		 */
 		messages:{},
+
+		/**
+		 * Wait screen
+		 */
+		waitScreen:{},
 	},
 
 	/**
