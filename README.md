@@ -7,7 +7,7 @@ This project is the official client form the DecodexWatcher API. (https://github
 
 ## Can I run my own instance of the client ?
 
-Yes, all you need is a simple webserver, to get faster performances when opening the client. The client doesn't require any processor, it is static and written in HTML. You can even adapt it to your needs and offer your fork of the project on Github. Of course, I'll be curious to know what you've done with my API, so don't hestitate to contact me when you integrate my API in your system.
+Yes, all you need is a simple webserver, to get faster performances when opening the client. The client doesn't require any processor, it is static and written in HTML. You can even adapt it to your needs and offer your fork of the project on Github. Of course, I'll be curious to know what you've done with my API, so don't hesitate to contact me when you integrate my API in your system.
 
 
 ## Does this project respect my privacy ?
