@@ -69,8 +69,19 @@ function timeToStr(timestamp){
         minutes = "0"+minutes;
 
     //Compose the date
-    var string = date.getDate()+" "+months[date.getMonth()]+" "+date.getFullYear()+" à "+hours+"h"+minutes;
+    var string = date.getDate()+" "+months[date.getMonth()+1]+" "+date.getFullYear()+" à "+hours+"h"+minutes;
 
     //Return it
     return string;
+}
+
+/**
+ * Get current date
+ * 
+ * @return {String} The current date
+ */
+function getCurrentDate(){
+    date = new Date();
+    date.get
+    return date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
 }
