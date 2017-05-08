@@ -275,7 +275,7 @@ DWclient.common.messages = {
 			"ordering": true,
 			"info": true,
 			"autoWidth": true,
-			"lengthMenu": [[2, 4, 6, 8, 10, 12, 14, 16], [2, 4, 6, 8, 10, 12, 14, 16]],
+			"lengthMenu": [[2, 1, 4, 6, 8, 10, 12, 14, 16], [2, 1, 4, 6, 8, 10, 12, 14, 16]],
 
 			//Language translation
 			"language": {
