@@ -89,6 +89,7 @@ DWclient.common.messages = {
 		if(isDissmissable){
 			var dismisselem = createElem("i", messageelem);
 			dismisselem.className = "close icon";
+			dismisselem.style.zIndex = 5000;
 			dismisselem.onclick = function(){
 				this.parentNode.parentNode.remove();
 			}
@@ -191,10 +192,10 @@ DWclient.common.messages = {
 	displayMultipleSitesInfos: function(sites){
 		//Create dialog information element
 		var contenerelem = createElem("div");
-		contenerelem.style.position = "relative";
+		/*contenerelem.style.position = "relative";
 		contenerelem.style.height = "700px";
 		contenerelem.style.top = "30px";
-		contenerelem.style.overflow = "auto";
+		contenerelem.style.overflow = "auto";*/
 
 		//Create table
 		var tableelem = createElem("table", contenerelem);
@@ -203,22 +204,24 @@ DWclient.common.messages = {
 
 		//Create header row
 		var tableheader = createElem("thead", tableelem);
-			var namefield = createElem("th", tableheader);
+		var tableheaderrow = createElem("tr", tableheader);
+
+			var namefield = createElem("th", tableheaderrow);
 			namefield.innerHTML = "Nom du site";
 
-			var commentField = createElem("th", tableheader);
+			var commentField = createElem("th", tableheaderrow);
 			commentField.innerHTML = "Commentaire";
 
-			var trustField = createElem("th", tableheader);
+			var trustField = createElem("th", tableheaderrow);
 			trustField.innerHTML = "Note";
 
-			var urlsfield = createElem("th", tableheader);
+			var urlsfield = createElem("th", tableheaderrow);
 			urlsfield.innerHTML = "URLs";
 
-			var latestField = createElem("th", tableheader);
+			var latestField = createElem("th", tableheaderrow);
 			latestField.innerHTML = "Dernière version";
 
-			var dateField = createElem("th", tableheader);
+			var dateField = createElem("th", tableheaderrow);
 			dateField.innerHTML = "Date d'enregistrement";
 		
 		//Create body row
@@ -263,6 +266,30 @@ DWclient.common.messages = {
 
 		//Apply message dialog
 		this.showMessage("Informations sur des sites web", contenerelem, "info", null, true, false, true);
+
+		//Enable Datatable
+		$("#multipleSitesTable").DataTable({
+			"paging": true,
+			"lengthChange": true,
+			"searching": true,
+			"ordering": true,
+			"info": true,
+			"autoWidth": true,
+			"lengthMenu": [[2, 4, 6, 8, 10, 12, 14, 16], [2, 4, 6, 8, 10, 12, 14, 16]],
+
+			//Language translation
+			"language": {
+				"info": "Page _PAGE_ sur _PAGES_ (_TOTAL_ sites au total)",
+				"lengthMenu": "Afficher _MENU_ sites",
+				"search": "Rechercher :",
+				"infoFiltered": " - filtr&eacute; depuis _MAX_ sites",
+
+				"paginate": {
+					"next": "Suivant",
+					"previous": "Pr&eacute;c&eacute;dent",
+				}
+			}
+		});
 
 		//Success
 		return true;
